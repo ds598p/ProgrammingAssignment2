@@ -9,8 +9,8 @@
 ## via a global variable
 
 makeCacheMatrix <- function(x = matrix()) {
-  global_x <<- x
-  global_inv_x <<- solve(x)
+  cached_x <<- x
+  cached_inv_x <<- solve(x)
 
 }
 
@@ -23,8 +23,8 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  if(identical(x,global_x)){
-    return(global_inv_x)
+  if(identical(x,cached_x)){
+    return(cached_inv_x)
   } else {
     (solve(x))
   }
